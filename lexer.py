@@ -27,8 +27,9 @@ class SimpleLexer(Lexer):
     ignore_comment = r'\#.*'
     ignore_newline = r'\n+'
 
-    # Regular expression rules for tokens
-    IDENTIFIER = r'[a-zA-Z_][a-zA-Z0-9_]*'
+    # WARNING! Tokens are matched in the order of declaration
+    # if you declare IDENTIFIER before method names like readint, 'readint' will be matched identifier
+
     # NUMBER = r'\d+'
     STRING = r'\".*?\"'
 
@@ -46,6 +47,10 @@ class SimpleLexer(Lexer):
     DIVIDE = r'/'
     MODULE = r'\%'
 
+    # Logical relations: strings
+    STR_EQ = r'=='
+    STR_NE = r'!='
+
     # Logical relations: numbers
     EQ = r'='
     LT = r'<'
@@ -53,10 +58,6 @@ class SimpleLexer(Lexer):
     GT = r'>'
     GE = r'>='
     NE = r'<>'
-
-    # Logical relations: strings
-    STR_EQ = r'=='
-    STR_NE = r'!='
 
     # Logical relations: booleans
     AND = r'and'
@@ -81,8 +82,8 @@ class SimpleLexer(Lexer):
     COMMA = r','
 
     # Constructs
-    BEGIN = r';'
-    END = r','
+    BEGIN = r'begin'
+    END = r'end'
     EXIT = r'exit'
     BREAK = r'break'
     CONTINUE = r'continue'
@@ -95,6 +96,12 @@ class SimpleLexer(Lexer):
     THEN = r'then'
     ELSE = r'else'
 
+    # Other
+    PRINT = r'print'
+
     L_PAREN = r'\('
     R_PAREN = r'\)'
+
+    # Regular expression rules for tokens
+    IDENTIFIER = r'[a-zA-Z_][a-zA-Z0-9_]*'
 
