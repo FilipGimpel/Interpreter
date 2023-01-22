@@ -12,7 +12,6 @@ class SimpleParser(Parser):
     # TODO precedence - fix shift/reduce conflicts (ambiguous grammar)
     # TODO I omitted the program = instr; rule because it seems unnecessary
 
-    # TODO unary minus?
     precedence = (
        ('left', "PLUS", "MINUS"),
        ('left', "MULTIPLY", "DIVIDE", "MODULE"),
